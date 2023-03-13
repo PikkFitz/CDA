@@ -1,3 +1,4 @@
+-- Active: 1677670145006@@127.0.0.1@3306@hotel
 -- -----------------
 -- BDD : hotel -----
 -- -----------------
@@ -45,25 +46,23 @@ DROP TRIGGER IF EXISTS insert_reservation;
 
 DELIMITER |
 
-CREATE TRIGGER modif_reservation AFTER UPDATE ON reservation
+CREATE TRIGGER insert_reservation AFTER INSERT ON reservation
 FOR EACH ROW
 BEGIN
     DECLARE numeroChambre INT;
-    SET numeroChambre = chambre_num;
+    SET numeroChambre = NEW.chambre_num;
 
     DECLARE numeroHotel INT;
-    SET numeroHotel = SELECT hotel_num FROM chambre WHERE 
+    SET numeroHotel = SELECT hotel_num FROM chambre WHERE chambre_num = numeroChambre;
 
     DECLARE nombreReservation INT;
-    SET nombreReservation =
+    SET nombreReservation = (SELECT COUNT(r.chambre_num)) FROM reservation r
+    JOIN chambre c ON r.chambre_num = c.chambre_num
+    WHERE c.hotel_num = numeroHotel;
 
-
-
-
-
-
-
-    SIGNAL SQLSTATE '40000' SET MESSAGE_TEXT = 'La modification de reservation est interdite';
+    IF nombreReservation >= 10 THEN
+        SIGNAL SQLSTATE '40000' SET MESSAGE_TEXT = 'Maximum de réservations atteint (Nombre de reservations pour cet hotel = 10)';
+    END IF;
 END|
 
 DELIMITER ;
