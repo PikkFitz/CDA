@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS cp;
+DROP DATABASE IF EXISTS commande_produit;
 
-CREATE DATABASE cp;
+CREATE DATABASE commande_produit;
 
-USE cp;
+USE commande_produit;
 
 CREATE TABLE client (
 	id 				INT AUTO_INCREMENT  NOT NULL,

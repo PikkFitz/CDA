@@ -15,7 +15,7 @@ CREATE TABLE `station` (
 INSERT INTO `station` (`station_num`, `station_nom`)
 VALUES
 	(1, 'nom_station_1'),
-    (2, 'nom_station_2'),
+  (2, 'nom_station_2'),
 	(3, 'nom_station_3');
 
 -- TABLE HOTEL ----------------------------------------------------------------------------------------------
@@ -34,7 +34,7 @@ CREATE TABLE `hotel` (
 INSERT INTO `hotel` (`hotel_num`, `hotel_nom`, `hotel_adresse`, `hotel_categorie`, `hotel_capacite`, `station_num`)
 VALUES
 	(1, 'nom_hotel_1', 'adresse_hotel_1', 'categorie_hotel_1', 100, 1),
-    (2, 'nom_hotel_2', 'adresse_hotel_2', 'categorie_hotel_2', 200, 2),
+  (2, 'nom_hotel_2', 'adresse_hotel_2', 'categorie_hotel_2', 200, 2),
 	(3, 'nom_hotel_3', 'adresse_hotel_3', 'categorie_hotel_3', 300, 3);
 
 -- TABLE CHAMBRE ----------------------------------------------------------------------------------------------
@@ -53,7 +53,7 @@ CREATE TABLE `chambre` (
 INSERT INTO `chambre` (`chambre_num`, `chambre_capacite`, `chambre_degreConfort`, `chambre_type`, `chambre_exposition`, `hotel_num`)
 VALUES
 	(1, 2, 'confort_chambre_1', 'type_chambre_1', 'exposition_chambre_1', 1),
-    (2, 2, 'confort_chambre_2', 'type_chambre_2', 'exposition_chambre_2', 2),
+  (2, 2, 'confort_chambre_2', 'type_chambre_2', 'exposition_chambre_2', 2),
 	(3, 1, 'confort_chambre_3', 'type_chambre_3', 'exposition_chambre_3', 2);
 
 -- TABLE CLIENT ----------------------------------------------------------------------------------------------
